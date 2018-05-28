@@ -12,7 +12,7 @@ class CRF(nn.Module):
         super(CRF, self).__init__()
         
         self.n_states = n_dice
-        self.transition = nn.Parameter(torch.randn(n_dice, n_dice + 1))
+        self.transition = torch.nn.init.normal(nn.Parameter(torch.randn(n_dice, n_dice + 1)), -1, 0.1)
         self.loglikelihood = log_likelihood
     
 
